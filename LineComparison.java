@@ -10,8 +10,8 @@ public class LineComparison {
               - y2 y-coordinate of the second point
     @return : return the distance in double type
      */
-    public static double getDistanceBetweenPoints(int x1 , int y1 , int x2 , int y2){
-        return Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+    public static long getDistanceBetweenPoints(int x1 , int y1 , int x2 , int y2){
+        return (long)Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
     }
     public static void main(String[] args) {
         System.out.println("!! Welcome to Line Comparison !!");
@@ -20,8 +20,14 @@ public class LineComparison {
         int x1 = input.nextInt() , y1 = input.nextInt();
         int x2 = input.nextInt() , y2 = input.nextInt();
 
-        double distance = getDistanceBetweenPoints(x1 , y1 , x2 , y2);
-        System.out.println("distance between two points (" + x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + distance );
+        double distanceLeftToRight = getDistanceBetweenPoints(x1 , y1 , x2 , y2);
+        double distanceRightToLeft = getDistanceBetweenPoints(x2 , y2 , x1 , y1);
+        System.out.println("distance between two points (" + x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + distanceLeftToRight );
+        System.out.println("distance between two points (" + x2 + "," + y2 + ") and (" + x1 + "," + y1 + ") is " + distanceRightToLeft );
 
+        //making double values as line objects , as equals method works on objects
+        Double line1 = Double.valueOf(distanceLeftToRight);
+        Double line2 = Double.valueOf(distanceLeftToRight);
+        System.out.println("Both the lines are " + (line1.equals(line2) ? "equal" : "not equal"));
     }
 }
