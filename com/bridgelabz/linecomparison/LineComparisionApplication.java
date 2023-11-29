@@ -1,18 +1,26 @@
+package com.bridgelabz.linecomparison;
+
 import java.util.Scanner;
 
-public class LineComparison {
+/*
+@desc :
+This Java class, named LineComparisionApplication, is designed to compare the lengths of two lines represented by pairs of points.
+It prompts the user to input the coordinates of two points for each line, calculates the distances between the points, and then compares
+the lengths of the two lines. The distances are calculated using the getDistanceBetweenPoints method from a class named LineComparison.
 
-    /*
-    @desc   : it calculates the distance between two points
-    @param  : - x1 x-coordinate of the first point
-              - y1 y-coordinate of the first point
-              - x2 x-coordinate of the second point
-              - y2 y-coordinate of the second point
-    @return : return the distance in double type
-     */
-    public static long getDistanceBetweenPoints(int x1 , int y1 , int x2 , int y2){
-        return (long)Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
-    }
+Here's a breakdown of the class functionalities:
+
+Input: The program prompts the user to input coordinates for two points on each line.
+
+Distance Calculation: It utilizes the getDistanceBetweenPoints method to calculate the distance between the input points for both lines.
+
+Output: The program then prints the lengths of both lines based on the calculated distances.
+
+Comparison: It converts the distance values to Double objects and compares them using the compareTo method. Finally, it outputs whether both lines are equal or which line is greater.
+
+User Interaction: The class provides clear instructions and messages to guide the user through the input and comparison process.
+ */
+public class LineComparisionApplication {
     public static void main(String[] args) {
         System.out.println("!! Welcome to Line Comparison !!");
         System.out.println("enter two points on a line to get distance : ");
@@ -21,13 +29,13 @@ public class LineComparison {
         int x1 = input.nextInt() , y1 = input.nextInt();
         int x2 = input.nextInt() , y2 = input.nextInt();
 
-        double distanceLeftToRight = getDistanceBetweenPoints(x1 , y1 , x2 , y2);
+        double distanceLeftToRight = LineComparison.getDistanceBetweenPoints(x1 , y1 , x2 , y2);
 
         //get the inputs of line 2
         System.out.println("enter two points on a line to get distance : ");
         int x3 = input.nextInt() , y3 = input.nextInt();
         int x4 = input.nextInt() , y4 = input.nextInt();
-        double distanceRightToLeft = getDistanceBetweenPoints(x3 , y3 , x4 , y4);
+        double distanceRightToLeft = LineComparison.getDistanceBetweenPoints(x3 , y3 , x4 , y4);
         //print the length of the two lines
         System.out.println("distance between two points (" + x1 + "," + y1 + ") and (" + x2 + "," + y2 + ") is " + distanceLeftToRight );
         System.out.println("distance between two points (" + x3 + "," + y3 + ") and (" + x4 + "," + y4 + ") is " + distanceRightToLeft );
